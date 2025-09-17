@@ -1,1 +1,56 @@
-{\n  \"framework\": \"nextjs\",\n  \"buildCommand\": \"npm run build\",\n  \"devCommand\": \"npm run dev\",\n  \"installCommand\": \"npm install\",\n  \"outputDirectory\": \".next\",\n  \"functions\": {\n    \"app/api/**/*.ts\": {\n      \"maxDuration\": 10\n    }\n  },\n  \"headers\": [\n    {\n      \"source\": \"/(.*)\",\n      \"headers\": [\n        {\n          \"key\": \"X-Content-Type-Options\",\n          \"value\": \"nosniff\"\n        },\n        {\n          \"key\": \"X-Frame-Options\",\n          \"value\": \"DENY\"\n        },\n        {\n          \"key\": \"X-XSS-Protection\",\n          \"value\": \"1; mode=block\"\n        },\n        {\n          \"key\": \"Referrer-Policy\",\n          \"value\": \"strict-origin-when-cross-origin\"\n        }\n      ]\n    },\n    {\n      \"source\": \"/images/(.*)\",\n      \"headers\": [\n        {\n          \"key\": \"Cache-Control\",\n          \"value\": \"public, max-age=31536000, immutable\"\n        }\n      ]\n    }\n  ],\n  \"redirects\": [\n    {\n      \"source\": \"/github\",\n      \"destination\": \"https://github.com/khanz0613\",\n      \"permanent\": true\n    },\n    {\n      \"source\": \"/fanzip\",\n      \"destination\": \"https://github.com/fanzip\",\n      \"permanent\": true\n    }\n  ]\n}
+{
+  "framework": "nextjs",
+  "buildCommand": "npm run build",
+  "devCommand": "npm run dev",
+  "installCommand": "npm install",
+  "outputDirectory": ".next",
+  "functions": {
+    "app/api/**/*.ts": {
+      "maxDuration": 10
+    }
+  },
+  "headers": [
+    {
+      "source": "/(.*)",
+      "headers": [
+        {
+          "key": "X-Content-Type-Options",
+          "value": "nosniff"
+        },
+        {
+          "key": "X-Frame-Options",
+          "value": "DENY"
+        },
+        {
+          "key": "X-XSS-Protection",
+          "value": "1; mode=block"
+        },
+        {
+          "key": "Referrer-Policy",
+          "value": "strict-origin-when-cross-origin"
+        }
+      ]
+    },
+    {
+      "source": "/images/(.*)",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=31536000, immutable"
+        }
+      ]
+    }
+  ],
+  "redirects": [
+    {
+      "source": "/github",
+      "destination": "https://github.com/khanz0613",
+      "permanent": true
+    },
+    {
+      "source": "/fanzip",
+      "destination": "https://github.com/fanzip",
+      "permanent": true
+    }
+  ]
+}
