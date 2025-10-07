@@ -1,1 +1,38 @@
-import React from 'react';\nimport { cn } from '@/lib/utils';\n\ninterface BadgeProps extends React.HTMLAttributes<HTMLDivElement> {\n  variant?: 'default' | 'secondary' | 'destructive' | 'outline' | 'success' | 'warning';\n  children: React.ReactNode;\n}\n\nconst Badge = React.forwardRef<HTMLDivElement, BadgeProps>(\n  ({ className, variant = 'default', children, ...props }, ref) => {\n    const variants = {\n      default: 'bg-blue-100 text-blue-800 dark:bg-blue-900/30 dark:text-blue-400',\n      secondary: 'bg-gray-100 text-gray-800 dark:bg-gray-800 dark:text-gray-300',\n      destructive: 'bg-red-100 text-red-800 dark:bg-red-900/30 dark:text-red-400',\n      outline: 'border border-gray-200 text-gray-700 dark:border-gray-700 dark:text-gray-300',\n      success: 'bg-green-100 text-green-800 dark:bg-green-900/30 dark:text-green-400',\n      warning: 'bg-yellow-100 text-yellow-800 dark:bg-yellow-900/30 dark:text-yellow-400'\n    };\n\n    return (\n      <div\n        ref={ref}\n        className={cn(\n          'inline-flex items-center rounded-full px-2.5 py-0.5 text-xs font-medium transition-colors',\n          variants[variant],\n          className\n        )}\n        {...props}\n      >\n        {children}\n      </div>\n    );\n  }\n);\n\nBadge.displayName = 'Badge';\n\nexport { Badge };
+import React from 'react';
+import { cn } from '@/lib/utils';
+
+interface BadgeProps extends React.HTMLAttributes<HTMLDivElement> {
+  variant?: 'default' | 'secondary' | 'destructive' | 'outline' | 'success' | 'warning';
+  children: React.ReactNode;
+}
+
+const Badge = React.forwardRef<HTMLDivElement, BadgeProps>(
+  ({ className, variant = 'default', children, ...props }, ref) => {
+    const variants = {
+      default: 'bg-blue-100 text-blue-800 dark:bg-blue-900/30 dark:text-blue-400',
+      secondary: 'bg-gray-100 text-gray-800 dark:bg-gray-800 dark:text-gray-300',
+      destructive: 'bg-red-100 text-red-800 dark:bg-red-900/30 dark:text-red-400',
+      outline: 'border border-gray-200 text-gray-700 dark:border-gray-700 dark:text-gray-300',
+      success: 'bg-green-100 text-green-800 dark:bg-green-900/30 dark:text-green-400',
+      warning: 'bg-yellow-100 text-yellow-800 dark:bg-yellow-900/30 dark:text-yellow-400'
+    };
+
+    return (
+      <div
+        ref={ref}
+        className={cn(
+          'inline-flex items-center rounded-full px-2.5 py-0.5 text-xs font-medium transition-colors',
+          variants[variant],
+          className
+        )}
+        {...props}
+      >
+        {children}
+      </div>
+    );
+  }
+);
+
+Badge.displayName = 'Badge';
+
+export { Badge };

@@ -1,1 +1,171 @@
-import Hero from '@/components/sections/Hero';\nimport ProjectCard from '@/components/project/ProjectCard';\nimport { projects } from '@/lib/projects-data';\nimport { Button } from '@/components/ui/Button';\nimport { ArrowRight, Code, Database, Cpu, Globe } from 'lucide-react';\n\nexport default function Home() {\n  const featuredProjects = projects.slice(0, 3); // Show top 3 projects\n\n  return (\n    <div className=\"min-h-screen\">\n      {/* Hero Section */}\n      <Hero />\n\n      {/* Featured Projects Section */}\n      <section className=\"py-20 bg-white dark:bg-gray-900\">\n        <div className=\"container-width section-padding\">\n          <div className=\"text-center space-y-6 mb-16\">\n            <h2 className=\"text-4xl font-bold\">\n              <span className=\"gradient-text\">주요 프로젝트</span>\n            </h2>\n            <p className=\"text-xl text-gray-600 dark:text-gray-400 max-w-3xl mx-auto\">\n              현재 운영 중인 프로덕션 서비스부터 혁신적인 ML 시스템까지,\n              <br />\n              실무에서 검증된 프로젝트들을 소개합니다.\n            </p>\n          </div>\n\n          <div className=\"grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12\">\n            {featuredProjects.map((project, index) => (\n              <ProjectCard key={project.id} project={project} index={index} />\n            ))}\n          </div>\n\n          <div className=\"text-center\">\n            <Button size=\"lg\" href=\"/projects\" className=\"group\">\n              모든 프로젝트 보기\n              <ArrowRight className=\"ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform\" />\n            </Button>\n          </div>\n        </div>\n      </section>\n\n      {/* Tech Stack Overview */}\n      <section className=\"py-20 gradient-bg\">\n        <div className=\"container-width section-padding\">\n          <div className=\"text-center space-y-6 mb-16\">\n            <h2 className=\"text-4xl font-bold\">\n              <span className=\"gradient-text\">기술 스택</span>\n            </h2>\n            <p className=\"text-xl text-gray-600 dark:text-gray-400 max-w-3xl mx-auto\">\n              풀스택 개발부터 머신러닝까지, 다양한 기술을 활용하여\n              <br />\n              완성도 높은 서비스를 구축합니다.\n            </p>\n          </div>\n\n          <div className=\"grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8\">\n            <TechCategory\n              icon={<Code className=\"h-8 w-8\" />}\n              title=\"백엔드\"\n              technologies={[\"Java 17\", \"Spring Boot 3.5\", \"Python 3.11+\", \"Node.js\"]}\n            />\n            <TechCategory\n              icon={<Globe className=\"h-8 w-8\" />}\n              title=\"프론트엔드\"\n              technologies={[\"React 18.3\", \"Vue.js 3\", \"TypeScript\", \"Tailwind CSS\"]}\n            />\n            <TechCategory\n              icon={<Cpu className=\"h-8 w-8\" />}\n              title=\"머신러닝/AI\"\n              technologies={[\"TensorFlow\", \"PyTorch\", \"Scikit-learn\", \"MediaPipe\"]}\n            />\n            <TechCategory\n              icon={<Database className=\"h-8 w-8\" />}\n              title=\"데브옵스\"\n              technologies={[\"AWS\", \"Docker\", \"GitHub Actions\", \"Nginx\"]}\n            />\n          </div>\n\n          <div className=\"text-center mt-12\">\n            <Button size=\"lg\" href=\"/skills\" variant=\"outline\" className=\"group\">\n              상세 기술스택 보기\n              <ArrowRight className=\"ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform\" />\n            </Button>\n          </div>\n        </div>\n      </section>\n\n      {/* Stats Section */}\n      <section className=\"py-20 bg-white dark:bg-gray-900\">\n        <div className=\"container-width section-padding\">\n          <div className=\"grid grid-cols-2 md:grid-cols-4 gap-8\">\n            <StatCard number=\"2\" label=\"운영 중인 서비스\" />\n            <StatCard number=\"100K+\" label=\"서비스 사용자\" />\n            <StatCard number=\"99.9%\" label=\"시스템 업타임\" />\n            <StatCard number=\"6\" label=\"완료된 프로젝트\" />\n          </div>\n        </div>\n      </section>\n\n      {/* CTA Section */}\n      <section className=\"py-20 gradient-bg\">\n        <div className=\"container-width section-padding text-center\">\n          <div className=\"space-y-8\">\n            <h2 className=\"text-4xl font-bold\">\n              <span className=\"gradient-text\">함께 일해요!</span>\n            </h2>\n            <p className=\"text-xl text-gray-600 dark:text-gray-400 max-w-2xl mx-auto\">\n              혁신적인 프로젝트에 함께 참여하거나 기술적 조언이 필요하시다면\n              <br />\n              언제든 연락주세요.\n            </p>\n            <div className=\"flex flex-wrap justify-center gap-4\">\n              <Button size=\"lg\" href=\"/contact\" className=\"group\">\n                연락하기\n                <ArrowRight className=\"ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform\" />\n              </Button>\n              <Button size=\"lg\" variant=\"outline\" href=\"mailto:gkrudgks0613@gmail.com\">\n                이메일 보내기\n              </Button>\n            </div>\n          </div>\n        </div>\n      </section>\n    </div>\n  );\n}\n\n// Tech Category Component - 영어 title 제거, titleKo를 title로 통합\nfunction TechCategory({ icon, title, technologies }: {\n  icon: React.ReactNode;\n  title: string;\n  technologies: string[];\n}) {\n  return (\n    <div className=\"bg-white dark:bg-gray-900 rounded-lg p-6 text-center space-y-4 shadow-sm border border-gray-200 dark:border-gray-800 hover:shadow-md transition-shadow\">\n      <div className=\"text-blue-600 dark:text-blue-400 flex justify-center\">\n        {icon}\n      </div>\n      <div>\n        <h3 className=\"text-lg font-semibold text-gray-900 dark:text-gray-100\">\n          {title}\n        </h3>\n      </div>\n      <div className=\"space-y-2\">\n        {technologies.map((tech) => (\n          <div key={tech} className=\"text-sm text-gray-600 dark:text-gray-300\">\n            {tech}\n          </div>\n        ))}\n      </div>\n    </div>\n  );\n}\n\n// Stat Card Component - 영어 subLabel 제거\nfunction StatCard({ number, label }: {\n  number: string;\n  label: string;\n}) {\n  return (\n    <div className=\"text-center space-y-2\">\n      <div className=\"text-3xl md:text-4xl font-bold gradient-text\">\n        {number}\n      </div>\n      <div className=\"text-sm font-medium text-gray-900 dark:text-gray-100\">\n        {label}\n      </div>\n    </div>\n  );\n}
+import Hero from '@/components/sections/Hero';
+import ProjectCard from '@/components/project/ProjectCard';
+import { projects } from '@/lib/projects-data';
+import { Button } from '@/components/ui/Button';
+import { ArrowRight, Code, Database, Cpu, Globe } from 'lucide-react';
+
+export default function Home() {
+  const featuredProjects = projects.slice(0, 3); // Show top 3 projects
+
+  return (
+    <div className="min-h-screen">
+      {/* Hero Section */}
+      <Hero />
+
+      {/* Featured Projects Section */}
+      <section className="py-20 bg-white dark:bg-gray-900">
+        <div className="container-width section-padding">
+          <div className="text-center space-y-6 mb-16">
+            <h2 className="text-4xl font-bold">
+              <span className="gradient-text">주요 프로젝트</span>
+            </h2>
+            <p className="text-xl text-gray-600 dark:text-gray-400 max-w-3xl mx-auto">
+              현재 운영 중인 프로덕션 서비스부터 혁신적인 ML 시스템까지,
+              <br />
+              실무에서 검증된 프로젝트들을 소개합니다.
+            </p>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
+            {featuredProjects.map((project, index) => (
+              <ProjectCard key={project.id} project={project} index={index} />
+            ))}
+          </div>
+
+          <div className="text-center">
+            <Button size="lg" href="/projects" className="group">
+              모든 프로젝트 보기
+              <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
+            </Button>
+          </div>
+        </div>
+      </section>
+
+      {/* Tech Stack Overview */}
+      <section className="py-20 gradient-bg">
+        <div className="container-width section-padding">
+          <div className="text-center space-y-6 mb-16">
+            <h2 className="text-4xl font-bold">
+              <span className="gradient-text">기술 스택</span>
+            </h2>
+            <p className="text-xl text-gray-600 dark:text-gray-400 max-w-3xl mx-auto">
+              풀스택 개발부터 머신러닝까지, 다양한 기술을 활용하여
+              <br />
+              완성도 높은 서비스를 구축합니다.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            <TechCategory
+              icon={<Code className="h-8 w-8" />}
+              title="백엔드"
+              technologies={["Java 17", "Spring Boot 3.5", "Python 3.11+", "Node.js"]}
+            />
+            <TechCategory
+              icon={<Globe className="h-8 w-8" />}
+              title="프론트엔드"
+              technologies={["React 18.3", "Vue.js 3", "TypeScript", "Tailwind CSS"]}
+            />
+            <TechCategory
+              icon={<Cpu className="h-8 w-8" />}
+              title="머신러닝/AI"
+              technologies={["TensorFlow", "PyTorch", "Scikit-learn", "MediaPipe"]}
+            />
+            <TechCategory
+              icon={<Database className="h-8 w-8" />}
+              title="데브옵스"
+              technologies={["AWS", "Docker", "GitHub Actions", "Nginx"]}
+            />
+          </div>
+
+          <div className="text-center mt-12">
+            <Button size="lg" href="/skills" variant="outline" className="group">
+              상세 기술스택 보기
+              <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
+            </Button>
+          </div>
+        </div>
+      </section>
+
+      {/* Stats Section */}
+      <section className="py-20 bg-white dark:bg-gray-900">
+        <div className="container-width section-padding">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
+            <StatCard number="2" label="운영 중인 서비스" />
+            <StatCard number="100K+" label="서비스 사용자" />
+            <StatCard number="99.9%" label="시스템 업타임" />
+            <StatCard number="6" label="완료된 프로젝트" />
+          </div>
+        </div>
+      </section>
+
+      {/* CTA Section */}
+      <section className="py-20 gradient-bg">
+        <div className="container-width section-padding text-center">
+          <div className="space-y-8">
+            <h2 className="text-4xl font-bold">
+              <span className="gradient-text">함께 일해요!</span>
+            </h2>
+            <p className="text-xl text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
+              혁신적인 프로젝트에 함께 참여하거나 기술적 조언이 필요하시다면
+              <br />
+              언제든 연락주세요.
+            </p>
+            <div className="flex flex-wrap justify-center gap-4">
+              <Button size="lg" href="/contact" className="group">
+                연락하기
+                <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
+              </Button>
+              <Button size="lg" variant="outline" href="mailto:gkrudgks0613@gmail.com">
+                이메일 보내기
+              </Button>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+  );
+}
+
+// Tech Category Component - 영어 title 제거, titleKo를 title로 통합
+function TechCategory({ icon, title, technologies }: {
+  icon: React.ReactNode;
+  title: string;
+  technologies: string[];
+}) {
+  return (
+    <div className="bg-white dark:bg-gray-900 rounded-lg p-6 text-center space-y-4 shadow-sm border border-gray-200 dark:border-gray-800 hover:shadow-md transition-shadow">
+      <div className="text-blue-600 dark:text-blue-400 flex justify-center">
+        {icon}
+      </div>
+      <div>
+        <h3 className="text-lg font-semibold text-gray-900 dark:text-gray-100">
+          {title}
+        </h3>
+      </div>
+      <div className="space-y-2">
+        {technologies.map((tech) => (
+          <div key={tech} className="text-sm text-gray-600 dark:text-gray-300">
+            {tech}
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+}
+
+// Stat Card Component - 영어 subLabel 제거
+function StatCard({ number, label }: {
+  number: string;
+  label: string;
+}) {
+  return (
+    <div className="text-center space-y-2">
+      <div className="text-3xl md:text-4xl font-bold gradient-text">
+        {number}
+      </div>
+      <div className="text-sm font-medium text-gray-900 dark:text-gray-100">
+        {label}
+      </div>
+    </div>
+  );
+}

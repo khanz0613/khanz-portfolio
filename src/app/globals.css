@@ -131,3 +131,30 @@ html {
 .animate-pulse-slow {
   animation: pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite;
 }
+
+/* Layout utility classes */
+.container-width {
+  max-width: 1200px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.section-padding {
+  padding-left: 1.5rem; /* 24px */
+  padding-right: 1.5rem; /* 24px */
+}
+
+@media (max-width: 640px) {
+  .section-padding {
+    padding-left: 1rem; /* 16px */
+    padding-right: 1rem; /* 16px */
+  }
+}
+
+/* Line clamp utilities */
+.line-clamp-3 {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}

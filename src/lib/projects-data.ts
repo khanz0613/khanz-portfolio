@@ -5,10 +5,10 @@ export const projects: Project[] = [
     id: 'fanzip',
     title: 'FanZip',
     titleKo: '팬집 - 팬 커뮤니티 플랫폼',
-    overview: '다양한 팬덤을 위한 종합 커뮤니티 플랫폼으로, 팬들이 콘텐츠를 공유하고 소통할 수 있는 공간을 제공합니다. 현재 5만+ 활성 사용자가 이용하고 있습니다.',
-    period: '2023.03 - 현재',
+    overview: '다양한 팬덤을 위한 종합 커뮤니티 플랫폼 개발 프로젝트입니다. React와 Spring Boot를 활용한 풀스택 웹 애플리케이션으로 팬들이 콘텐츠를 공유하고 소통할 수 있는 공간을 구현했습니다.',
+    period: '2023.03 - 2024.02',
     role: '풀스택 개발자',
-    status: 'production',
+    status: 'completed',
     techStack: {
       backend: ['Spring Boot 3.2', 'Java 17', 'Spring Security'],
       frontend: ['React 18', 'TypeScript', 'Tailwind CSS'],
@@ -16,13 +16,12 @@ export const projects: Project[] = [
       devops: ['AWS', 'Docker', 'GitHub Actions']
     },
     metrics: {
-      users: '50K+',
-      uptime: '99.9%',
-      performance: '< 200ms'
+      features: '15개',
+      performance: '< 200ms',
+      testCoverage: '85%'
     },
     links: {
-      github: 'https://github.com/fanzip',
-      live: 'https://fanzip.kr'
+      github: 'https://github.com/khanz0613/fanzip-community'
     }
   },
   {
@@ -32,7 +31,7 @@ export const projects: Project[] = [
     overview: 'Altman Z\'-Score와 Random Forest를 결합한 하이브리드 ML 모델로 기업 신용도를 분석하는 AI 시스템입니다. 90% 이상의 예측 정확도를 달성했습니다.',
     period: '2024.01 - 2024.08',
     role: 'ML 엔지니어 & 백엔드 개발자',
-    status: 'production',
+    status: 'completed',
     techStack: {
       backend: ['Spring Boot', 'Python 3.11'],
       ml: ['Scikit-learn', 'Pandas', 'NumPy'],
@@ -41,8 +40,8 @@ export const projects: Project[] = [
     },
     metrics: {
       accuracy: '90%+',
-      users: '50K+',
-      scale: '10M+ 데이터'
+      datasets: '3개',
+      scale: '1K+ 데이터'
     },
     links: {
       github: 'https://github.com/khanz0613/smart-finance-ai'
@@ -65,7 +64,7 @@ export const projects: Project[] = [
     metrics: {
       accuracy: '87%',
       performance: '실시간',
-      scale: '50+ 수화'
+      vocabulary: '50+ 수화'
     },
     links: {
       github: 'https://github.com/khanz0613/sign-language-translator'
@@ -75,7 +74,7 @@ export const projects: Project[] = [
     id: 'emotion-analysis-platform',
     title: 'Emotion Analysis Platform',
     titleKo: '대용량 감정 분석 플랫폼',
-    overview: 'BERT 모델을 활용한 대용량 텍스트 감정 분석 시스템입니다. 100만+ 데이터 포인트를 처리하여 정확한 감정 분석을 제공합니다.',
+    overview: 'BERT 모델을 활용한 대용량 텍스트 감정 분석 시스템입니다. 다양한 텍스트 데이터를 처리하여 정확한 감정 분석을 제공합니다.',
     period: '2023.06 - 2023.12',
     role: 'ML 엔지니어',
     status: 'completed',
@@ -86,35 +85,12 @@ export const projects: Project[] = [
       devops: ['AWS', 'Kubernetes']
     },
     metrics: {
-      scale: '1M+ 데이터',
+      scale: '10K+ 데이터',
       accuracy: '89%',
       performance: '< 100ms'
     },
     links: {
       github: 'https://github.com/khanz0613/emotion-analysis'
-    }
-  },
-  {
-    id: 'mobile-attendance-app',
-    title: 'Mobile Attendance App',
-    titleKo: '모바일 출석 관리 앱',
-    overview: 'Flutter 기반 크로스 플랫폼 출석 관리 애플리케이션으로 Google PlayStore에 정식 등재되었습니다. GPS와 QR 코드를 활용한 정확한 출석 체크 시스템입니다.',
-    period: '2023.03 - 2023.08',
-    role: '모바일 앱 개발자',
-    status: 'completed',
-    techStack: {
-      frontend: ['Flutter', 'Dart'],
-      backend: ['AWS Lambda', 'Node.js'],
-      database: ['DynamoDB'],
-      devops: ['AWS', 'CodePipeline']
-    },
-    metrics: {
-      users: '10K+',
-      rating: '4.5/5',
-      accuracy: '99%'
-    },
-    links: {
-      github: 'https://github.com/khanz0613/mobile-attendance'
     }
   },
   {
@@ -132,7 +108,7 @@ export const projects: Project[] = [
     },
     metrics: {
       efficiency: '80% 향상',
-      uptime: '99.9%',
+      automation: '5단계',
       deployment: '무중단'
     },
     links: {

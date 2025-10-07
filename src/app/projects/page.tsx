@@ -1,1 +1,181 @@
-import { Metadata } from 'next';\nimport ProjectCard from '@/components/project/ProjectCard';\nimport { projects } from '@/lib/projects-data';\nimport { Button } from '@/components/ui/Button';\nimport { ArrowLeft, Filter } from 'lucide-react';\n\nexport const metadata: Metadata = {\n  title: '프로젝트',\n  description: '하경한의 주요 프로젝트들을 소개합니다. 현재 운영 중인 프로덕션 서비스부터 혁신적인 ML 시스템까지 다양한 프로젝트를 확인하세요.',\n};\n\nexport default function ProjectsPage() {\n  const productionProjects = projects.filter(p => p.status === 'production');\n  const completedProjects = projects.filter(p => p.status === 'completed');\n  const inProgressProjects = projects.filter(p => p.status === 'in-progress');\n\n  return (\n    <div className=\"pt-16 min-h-screen bg-gray-50 dark:bg-gray-900\">\n      {/* Header */}\n      <section className=\"py-20 gradient-bg\">\n        <div className=\"container-width section-padding\">\n          <div className=\"text-center space-y-6\">\n            <h1 className=\"text-5xl font-bold\">\n              <span className=\"gradient-text\">프로젝트</span>\n            </h1>\n            <p className=\"text-xl text-gray-600 dark:text-gray-400 max-w-3xl mx-auto\">\n              풀스택 개발부터 머신러닝까지, 실무에서 검증된 다양한 프로젝트들을 소개합니다.\n              <br />\n              현재 <strong className=\"text-blue-600 dark:text-blue-400\">2개의 프로덕션 서비스</strong>를 운영하며 \n              <strong className=\"text-green-600 dark:text-green-400\">10만+ 사용자</strong>에게 서비스를 제공하고 있습니다.\n            </p>\n            \n            <div className=\"flex justify-center\">\n              <Button variant=\"outline\" href=\"/\">\n                <ArrowLeft className=\"mr-2 h-4 w-4\" />\n                홈으로 돌아가기\n              </Button>\n            </div>\n          </div>\n        </div>\n      </section>\n\n      {/* Project Statistics */}\n      <section className=\"py-12 bg-white dark:bg-gray-900\">\n        <div className=\"container-width section-padding\">\n          <div className=\"grid grid-cols-1 md:grid-cols-4 gap-8\">\n            <StatCard \n              number={projects.length.toString()} \n              label=\"총 프로젝트\" \n              description=\"완료된 모든 프로젝트\" \n            />\n            <StatCard \n              number={productionProjects.length.toString()} \n              label=\"운영 중인 서비스\" \n              description=\"현재 프로덕션 환경\" \n            />\n            <StatCard \n              number=\"100K+\" \n              label=\"총 사용자\" \n              description=\"서비스 누적 사용자\" \n            />\n            <StatCard \n              number=\"99.9%\" \n              label=\"시스템 업타임\" \n              description=\"서비스 안정성\" \n            />\n          </div>\n        </div>\n      </section>\n\n      {/* Production Projects */}\n      {productionProjects.length > 0 && (\n        <section className=\"py-16 bg-gray-50 dark:bg-gray-800\">\n          <div className=\"container-width section-padding\">\n            <div className=\"text-center space-y-4 mb-12\">\n              <h2 className=\"text-3xl font-bold\">\n                <span className=\"gradient-text\">🚀 운영 중인 서비스</span>\n              </h2>\n              <p className=\"text-gray-600 dark:text-gray-400\">\n                현재 실제 사용자들이 이용하고 있는 프로덕션 서비스들입니다.\n              </p>\n            </div>\n            \n            <div className=\"grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8\">\n              {productionProjects.map((project, index) => (\n                <ProjectCard key={project.id} project={project} index={index} />\n              ))}\n            </div>\n          </div>\n        </section>\n      )}\n\n      {/* Completed Projects */}\n      {completedProjects.length > 0 && (\n        <section className=\"py-16 bg-white dark:bg-gray-900\">\n          <div className=\"container-width section-padding\">\n            <div className=\"text-center space-y-4 mb-12\">\n              <h2 className=\"text-3xl font-bold\">\n                <span className=\"gradient-text\">✅ 완료된 프로젝트</span>\n              </h2>\n              <p className=\"text-gray-600 dark:text-gray-400\">\n                성공적으로 완료된 프로젝트들로, 각각 고유한 기술적 도전과 성과를 담고 있습니다.\n              </p>\n            </div>\n            \n            <div className=\"grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8\">\n              {completedProjects.map((project, index) => (\n                <ProjectCard key={project.id} project={project} index={index} />\n              ))}\n            </div>\n          </div>\n        </section>\n      )}\n\n      {/* In Progress Projects */}\n      {inProgressProjects.length > 0 && (\n        <section className=\"py-16 bg-gray-50 dark:bg-gray-800\">\n          <div className=\"container-width section-padding\">\n            <div className=\"text-center space-y-4 mb-12\">\n              <h2 className=\"text-3xl font-bold\">\n                <span className=\"gradient-text\">🔄 진행 중인 프로젝트</span>\n              </h2>\n              <p className=\"text-gray-600 dark:text-gray-400\">\n                현재 개발 중인 프로젝트들로, 지속적으로 발전하고 있습니다.\n              </p>\n            </div>\n            \n            <div className=\"grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8\">\n              {inProgressProjects.map((project, index) => (\n                <ProjectCard key={project.id} project={project} index={index} />\n              ))}\n            </div>\n          </div>\n        </section>\n      )}\n\n      {/* Technology Highlights */}\n      <section className=\"py-16 bg-white dark:bg-gray-900\">\n        <div className=\"container-width section-padding\">\n          <div className=\"text-center space-y-4 mb-12\">\n            <h2 className=\"text-3xl font-bold\">\n              <span className=\"gradient-text\">💻 기술 하이라이트</span>\n            </h2>\n            <p className=\"text-gray-600 dark:text-gray-400\">\n              프로젝트들에서 사용된 주요 기술들과 특별한 성과들입니다.\n            </p>\n          </div>\n          \n          <div className=\"grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8\">\n            <TechHighlight\n              title=\"하이브리드 ML 모델\"\n              description=\"Altman Z'-Score + Random Forest 결합으로 90%+ 예측 정확도 달성\"\n              tech={[\"Python\", \"Scikit-learn\", \"Financial Engineering\"]}\n            />\n            <TechHighlight\n              title=\"대규모 서비스 아키텍처\"\n              description=\"10만+ 동시 사용자 처리 가능한 확장성 있는 시스템 설계\"\n              tech={[\"Spring Boot\", \"AWS\", \"Docker\", \"Redis\"]}\n            />\n            <TechHighlight\n              title=\"실시간 AI 처리\"\n              description=\"MediaPipe와 TensorFlow를 활용한 실시간 수화 번역 시스템\"\n              tech={[\"TensorFlow\", \"MediaPipe\", \"Computer Vision\"]}\n            />\n            <TechHighlight\n              title=\"DevOps 자동화\"\n              description=\"GitHub Actions CI/CD로 배포 효율성 80% 향상\"\n              tech={[\"GitHub Actions\", \"Docker\", \"Nginx\", \"AWS\"]}\n            />\n            <TechHighlight\n              title=\"빅데이터 분석\"\n              description=\"100만+ 데이터 포인트 처리 및 감정 분석\"\n              tech={[\"Python\", \"BERT\", \"Data Processing\"]}\n            />\n            <TechHighlight\n              title=\"모바일 앱 개발\"\n              description=\"Flutter 기반 크로스 플랫폼 앱 Google PlayStore 정식 등재\"\n              tech={[\"Flutter\", \"AWS Lambda\", \"Mobile Development\"]}\n            />\n          </div>\n        </div>\n      </section>\n\n      {/* CTA Section */}\n      <section className=\"py-20 gradient-bg\">\n        <div className=\"container-width section-padding text-center\">\n          <div className=\"space-y-8\">\n            <h2 className=\"text-4xl font-bold\">\n              <span className=\"gradient-text\">더 자세한 정보가 필요하신가요?</span>\n            </h2>\n            <p className=\"text-xl text-gray-600 dark:text-gray-400 max-w-2xl mx-auto\">\n              각 프로젝트의 상세한 기술 문서나 소스코드는 요청 시 제공 가능합니다.\n            </p>\n            <div className=\"flex flex-wrap justify-center gap-4\">\n              <Button size=\"lg\" href=\"/contact\">\n                연락하기\n              </Button>\n              <Button size=\"lg\" variant=\"outline\" href=\"https://github.com/khanz0613\">\n                GitHub 방문\n              </Button>\n            </div>\n          </div>\n        </div>\n      </section>\n    </div>\n  );\n}\n\n// Components\nfunction StatCard({ number, label, description }: {\n  number: string;\n  label: string;\n  description: string;\n}) {\n  return (\n    <div className=\"text-center space-y-2 p-6 bg-gray-50 dark:bg-gray-800 rounded-lg\">\n      <div className=\"text-3xl font-bold gradient-text\">\n        {number}\n      </div>\n      <div className=\"text-sm font-medium text-gray-900 dark:text-gray-100\">\n        {label}\n      </div>\n      <div className=\"text-xs text-gray-500 dark:text-gray-400\">\n        {description}\n      </div>\n    </div>\n  );\n}\n\nfunction TechHighlight({ title, description, tech }: {\n  title: string;\n  description: string;\n  tech: string[];\n}) {\n  return (\n    <div className=\"p-6 bg-gray-50 dark:bg-gray-800 rounded-lg space-y-4\">\n      <h3 className=\"text-lg font-semibold text-gray-900 dark:text-gray-100\">\n        {title}\n      </h3>\n      <p className=\"text-sm text-gray-600 dark:text-gray-300\">\n        {description}\n      </p>\n      <div className=\"flex flex-wrap gap-2\">\n        {tech.map((t) => (\n          <span key={t} className=\"px-2 py-1 bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300 text-xs rounded-full\">\n            {t}\n          </span>\n        ))}\n      </div>\n    </div>\n  );\n}
+import { Metadata } from 'next';
+import ProjectCard from '@/components/project/ProjectCard';
+import { projects } from '@/lib/projects-data';
+import { Button } from '@/components/ui/Button';
+import { ArrowLeft } from 'lucide-react';
+
+export const metadata: Metadata = {
+  title: '프로젝트',
+  description: '하경한의 주요 프로젝트들을 소개합니다. 현재 운영 중인 프로덕션 서비스부터 혁신적인 ML 시스템까지 다양한 프로젝트를 확인하세요.',
+};
+
+export default function ProjectsPage() {
+  const productionProjects = projects.filter(p => p.status === 'production');
+  const completedProjects = projects.filter(p => p.status === 'completed');
+  const inProgressProjects = projects.filter(p => p.status === 'in-progress');
+
+  return (
+    <div className="pt-16 min-h-screen bg-gray-50 dark:bg-gray-900">
+      {/* Header */}
+      <section className="py-20 gradient-bg">
+        <div className="container-width section-padding">
+          <div className="text-center space-y-6">
+            <h1 className="text-5xl font-bold">
+              <span className="gradient-text">프로젝트</span>
+            </h1>
+            <p className="text-xl text-gray-600 dark:text-gray-400 max-w-3xl mx-auto">
+              풀스택 개발부터 머신러닝까지, 다양한 기술을 활용한 프로젝트들을 소개합니다.
+              <br />
+              현재까지 <strong className="text-blue-600 dark:text-blue-400">5개의 프로젝트</strong>를 완료했으며
+              <strong className="text-green-600 dark:text-green-400">15+개 기술</strong>을 활용한 경험을 보유하고 있습니다.
+            </p>
+
+            <div className="flex justify-center">
+              <Button variant="outline" href="/">
+                <ArrowLeft className="mr-2 h-4 w-4" />
+                홈으로 돌아가기
+              </Button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Project Statistics */}
+      <section className="py-12 bg-white dark:bg-gray-900">
+        <div className="container-width section-padding">
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+            <StatCard
+              number={projects.length.toString()}
+              label="총 프로젝트"
+              description="완료된 모든 프로젝트"
+            />
+            <StatCard
+              number={inProgressProjects.length.toString()}
+              label="진행 중인 프로젝트"
+              description="현재 개발 진행 중"
+            />
+            <StatCard
+              number="15+"
+              label="사용 기술"
+              description="다양한 기술 스택"
+            />
+            <StatCard
+              number="90%+"
+              label="ML 정확도"
+              description="머신러닝 모델 성능"
+            />
+          </div>
+        </div>
+      </section>
+
+      {/* Production Projects */}
+      {productionProjects.length > 0 && (
+        <section className="py-16 bg-gray-50 dark:bg-gray-800">
+          <div className="container-width section-padding">
+            <div className="text-center space-y-4 mb-12">
+              <h2 className="text-3xl font-bold">
+                <span className="gradient-text">🚀 운영 중인 서비스</span>
+              </h2>
+              <p className="text-gray-600 dark:text-gray-400">
+                현재 실제 사용자들이 이용하고 있는 프로덕션 서비스들입니다.
+              </p>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+              {productionProjects.map((project, index) => (
+                <ProjectCard key={project.id} project={project} index={index} />
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
+
+      {/* Completed Projects */}
+      {completedProjects.length > 0 && (
+        <section className="py-16 bg-white dark:bg-gray-900">
+          <div className="container-width section-padding">
+            <div className="text-center space-y-4 mb-12">
+              <h2 className="text-3xl font-bold">
+                <span className="gradient-text">✅ 완료된 프로젝트</span>
+              </h2>
+              <p className="text-gray-600 dark:text-gray-400">
+                성공적으로 완료된 프로젝트들로, 각각 고유한 기술적 도전과 성과를 담고 있습니다.
+              </p>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+              {completedProjects.map((project, index) => (
+                <ProjectCard key={project.id} project={project} index={index} />
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
+
+      {/* In Progress Projects */}
+      {inProgressProjects.length > 0 && (
+        <section className="py-16 bg-gray-50 dark:bg-gray-800">
+          <div className="container-width section-padding">
+            <div className="text-center space-y-4 mb-12">
+              <h2 className="text-3xl font-bold">
+                <span className="gradient-text">🔄 진행 중인 프로젝트</span>
+              </h2>
+              <p className="text-gray-600 dark:text-gray-400">
+                현재 개발 중인 프로젝트들로, 지속적으로 발전하고 있습니다.
+              </p>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+              {inProgressProjects.map((project, index) => (
+                <ProjectCard key={project.id} project={project} index={index} />
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
+
+      {/* CTA Section */}
+      <section className="py-20 gradient-bg">
+        <div className="container-width section-padding text-center">
+          <div className="space-y-8">
+            <h2 className="text-4xl font-bold">
+              <span className="gradient-text">더 자세한 정보가 필요하신가요?</span>
+            </h2>
+            <p className="text-xl text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
+              각 프로젝트의 상세한 기술 문서나 소스코드는 요청 시 제공 가능합니다.
+            </p>
+            <div className="flex flex-wrap justify-center gap-4">
+              <Button size="lg" href="/contact">
+                연락하기
+              </Button>
+              <Button size="lg" variant="outline" href="https://github.com/khanz0613">
+                GitHub 방문
+              </Button>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+  );
+}
+
+// Components
+function StatCard({ number, label, description }: {
+  number: string;
+  label: string;
+  description: string;
+}) {
+  return (
+    <div className="text-center space-y-2 p-6 bg-gray-50 dark:bg-gray-800 rounded-lg">
+      <div className="text-3xl font-bold gradient-text">
+        {number}
+      </div>
+      <div className="text-sm font-medium text-gray-900 dark:text-gray-100">
+        {label}
+      </div>
+      <div className="text-xs text-gray-500 dark:text-gray-400">
+        {description}
+      </div>
+    </div>
+  );
+}

@@ -14,6 +14,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL('https://khanz-portfolio.vercel.app'),
   title: {
     default: "하경한 - 풀스택 개발자 & ML 엔지니어 포트폴리오",
     template: "%s | 하경한 포트폴리오"
@@ -24,7 +25,7 @@ export const metadata: Metadata = {
     "Spring Boot", "React", "Vue.js", "Python", "DevOps", "AWS",
     "포트폴리오", "개발자", "풀스택", "머신러닝", "AI"
   ],
-  authors: [{ name: "하경한 (Kyunghan Ha)", url: "https://github.com/khanz0613" }],
+  authors: [{ name: "하경한 (Kyeonghan Ha)", url: "https://github.com/khanz0613" }],
   creator: "하경한",
   publisher: "하경한",
   robots: {
@@ -43,25 +44,13 @@ export const metadata: Metadata = {
     locale: "ko_KR",
     url: "https://khanz-portfolio.vercel.app",
     title: "하경한 - 풀스택 개발자 포트폴리오",
-    description: "10만+ 사용자에게 서비스를 제공하는 프로덕션 서비스를 운영하는 풀스택 개발자 및 ML 엔지니어",
+    description: "사용자에게 서비스를 제공하는 프로덕션 서비스를 운영하는 풀스택 개발자 및 ML 엔지니어",
     siteName: "하경한 포트폴리오",
-    images: [
-      {
-        url: "/og-image.jpg",
-        width: 1200,
-        height: 630,
-        alt: "하경한 포트폴리오",
-      },
-    ],
   },
   twitter: {
     card: "summary_large_image",
     title: "하경한 - 풀스택 개발자 및 ML 엔지니어",
     description: "풀스택 개발, 머신러닝, DevOps 전문성을 보여주는 전문 포트폴리오",
-    images: ["/og-image.jpg"],
-  },
-  verification: {
-    google: "your-google-verification-code",
   },
 };
 
@@ -82,7 +71,7 @@ export default function RootLayout({
         <footer className="bg-gray-50 dark:bg-gray-900 border-t border-gray-200 dark:border-gray-800">
           <div className="container-width section-padding py-12">
             <div className="text-center space-y-4">
-              <h3 className="text-lg font-semibold gradient-text">하경한 (Kyunghan Ha)</h3>
+              <h3 className="text-lg font-semibold gradient-text">하경한 (Kyeonghan Ha)</h3>
               <p className="text-gray-600 dark:text-gray-400">
                 풀스택 개발자 & ML 엔지니어
               </p>

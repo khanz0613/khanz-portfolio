@@ -22,7 +22,10 @@ const Navigation = () => {
 
   const navItems = [
     { href: '/', label: '홈' },
-    { href: '/projects', label: '프로젝트' }
+    { href: '/about', label: '소개' },
+    { href: '/skills', label: '기술스택' },
+    { href: '/projects', label: '프로젝트' },
+    { href: '/contact', label: '연락하기' }
   ];
 
   const socialLinks = [
