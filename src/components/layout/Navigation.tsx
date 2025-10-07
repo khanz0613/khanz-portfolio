@@ -78,10 +78,10 @@ const Navigation = () => {
                   href={link.href}
                   target={link.href.startsWith('http') ? '_blank' : undefined}
                   rel={link.href.startsWith('http') ? 'noopener noreferrer' : undefined}
-                  className="p-2 text-gray-600 hover:text-blue-600 dark:text-gray-400 dark:hover:text-blue-400 transition-colors"
+                  className="p-2 text-gray-700 hover:text-blue-600 dark:text-gray-200 dark:hover:text-blue-400 transition-colors"
                   aria-label={link.label}
                 >
-                  <Icon size={18} />
+                  <Icon size={18} className="stroke-current" />
                 </a>
               );
             })}
@@ -127,10 +127,10 @@ const Navigation = () => {
                       href={link.href}
                       target={link.href.startsWith('http') ? '_blank' : undefined}
                       rel={link.href.startsWith('http') ? 'noopener noreferrer' : undefined}
-                      className="p-2 text-gray-600 hover:text-blue-600 dark:text-gray-400 dark:hover:text-blue-400 transition-colors"
+                      className="p-2 text-gray-700 hover:text-blue-600 dark:text-gray-200 dark:hover:text-blue-400 transition-colors"
                       aria-label={link.label}
                     >
-                      <Icon size={18} />
+                      <Icon size={18} className="stroke-current" />
                     </a>
                   );
                 })}

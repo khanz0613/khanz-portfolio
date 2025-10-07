@@ -75,15 +75,15 @@ export default function RootLayout({
               <p className="text-gray-600 dark:text-gray-400">
                 풀스택 개발자 & ML 엔지니어
               </p>
-              <div className="flex justify-center space-x-6 text-sm text-gray-500 dark:text-gray-400">
+              <div className="flex justify-center space-x-6 text-sm text-gray-600 dark:text-gray-300">
                 <a href="mailto:gkrudgks0613@gmail.com" className="hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
                   gkrudgks0613@gmail.com
                 </a>
-                <span>•</span>
+                <span className="text-gray-400">•</span>
                 <a href="tel:010-2431-0733" className="hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
                   010-2431-0733
                 </a>
-                <span>•</span>
+                <span className="text-gray-400">•</span>
                 <a href="https://github.com/khanz0613" target="_blank" rel="noopener noreferrer" className="hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
                   GitHub
                 </a>

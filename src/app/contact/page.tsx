@@ -92,7 +92,24 @@ export default function ContactPage() {
             </div>
 
             <div className="bg-white dark:bg-gray-900 rounded-lg shadow-sm border border-gray-200 dark:border-gray-800 p-8">
-              <form className="space-y-6">
+              <form
+                className="space-y-6"
+                onSubmit={(e) => {
+                  e.preventDefault();
+                  const formData = new FormData(e.currentTarget);
+                  const name = formData.get('name');
+                  const email = formData.get('email');
+                  const subject = formData.get('subject');
+                  const message = formData.get('message');
+
+                  // Create mailto URL with form data
+                  const mailtoURL = `mailto:gkrudgks0613@gmail.com?subject=${encodeURIComponent(subject as string)}&body=${encodeURIComponent(
+                    `보내는 사람: ${name}\n이메일: ${email}\n\n${message}`
+                  )}`;
+
+                  window.location.href = mailtoURL;
+                }}
+              >
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <div>
                     <label htmlFor="name" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
@@ -155,11 +172,6 @@ export default function ContactPage() {
                     size="lg"
                     type="submit"
                     className="group"
-                    onClick={(e) => {
-                      e.preventDefault();
-                      // For now, just redirect to email - in a real app you'd handle form submission
-                      window.location.href = 'mailto:gkrudgks0613@gmail.com';
-                    }}
                   >
                     <Send className="mr-2 h-5 w-5" />
                     메시지 보내기
@@ -168,7 +180,7 @@ export default function ContactPage() {
               </form>
 
               <div className="mt-6 text-center text-sm text-gray-500 dark:text-gray-400">
-                * 현재는 이메일로 리다이렉트됩니다. 직접 이메일을 보내주셔도 됩니다.
+                * 폼 내용이 자동으로 이메일 본문에 포함됩니다.
               </div>
             </div>
           </div>
