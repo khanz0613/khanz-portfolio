@@ -32,7 +32,7 @@ export default function ProjectsPage() {
 
             <div className="flex justify-center">
               <Button variant="outline" href="/">
-                <ArrowLeft className="mr-2 h-4 w-4" />
+                <ArrowLeft className="mr-2 h-4 w-4 stroke-current" />
                 홈으로 돌아가기
               </Button>
             </div>

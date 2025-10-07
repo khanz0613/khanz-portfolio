@@ -34,7 +34,7 @@ export default function Home() {
           <div className="text-center">
             <Button size="lg" href="/projects" className="group">
               모든 프로젝트 보기
-              <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
+              <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform stroke-current" />
             </Button>
           </div>
         </div>
@@ -56,22 +56,22 @@ export default function Home() {
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             <TechCategory
-              icon={<Code className="h-8 w-8" />}
+              icon={<Code className="h-8 w-8 stroke-current" />}
               title="백엔드"
               technologies={["Java 17", "Spring Boot 3.5", "Python 3.11+", "Node.js"]}
             />
             <TechCategory
-              icon={<Globe className="h-8 w-8" />}
+              icon={<Globe className="h-8 w-8 stroke-current" />}
               title="프론트엔드"
               technologies={["React 18.3", "Vue.js 3", "TypeScript", "Tailwind CSS"]}
             />
             <TechCategory
-              icon={<Cpu className="h-8 w-8" />}
+              icon={<Cpu className="h-8 w-8 stroke-current" />}
               title="머신러닝/AI"
               technologies={["TensorFlow", "PyTorch", "Scikit-learn", "MediaPipe"]}
             />
             <TechCategory
-              icon={<Database className="h-8 w-8" />}
+              icon={<Database className="h-8 w-8 stroke-current" />}
               title="데브옵스"
               technologies={["AWS", "Docker", "GitHub Actions", "Nginx"]}
             />
@@ -80,7 +80,7 @@ export default function Home() {
           <div className="text-center mt-12">
             <Button size="lg" href="/skills" variant="outline" className="group">
               상세 기술스택 보기
-              <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
+              <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform stroke-current" />
             </Button>
           </div>
         </div>
@@ -113,7 +113,7 @@ export default function Home() {
             <div className="flex flex-wrap justify-center gap-4">
               <Button size="lg" href="/contact" className="group">
                 연락하기
-                <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
+                <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform stroke-current" />
               </Button>
               <Button size="lg" variant="outline" href="mailto:gkrudgks0613@gmail.com">
                 이메일 보내기

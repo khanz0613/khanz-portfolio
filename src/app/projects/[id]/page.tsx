@@ -68,17 +68,17 @@ export default async function ProjectDetailPage({ params }: ProjectDetailPagePro
   const getTechIcon = (category: string) => {
     switch (category) {
       case 'backend':
-        return <Server className="h-5 w-5" />;
+        return <Server className="h-5 w-5 stroke-current" />;
       case 'frontend':
-        return <Globe className="h-5 w-5" />;
+        return <Globe className="h-5 w-5 stroke-current" />;
       case 'ml':
-        return <Cpu className="h-5 w-5" />;
+        return <Cpu className="h-5 w-5 stroke-current" />;
       case 'database':
-        return <Database className="h-5 w-5" />;
+        return <Database className="h-5 w-5 stroke-current" />;
       case 'devops':
-        return <Cloud className="h-5 w-5" />;
+        return <Cloud className="h-5 w-5 stroke-current" />;
       default:
-        return <Code className="h-5 w-5" />;
+        return <Code className="h-5 w-5 stroke-current" />;
     }
   };
 
@@ -138,7 +138,7 @@ export default async function ProjectDetailPage({ params }: ProjectDetailPagePro
 
             <div className="flex justify-center">
               <Button variant="outline" href="/projects">
-                <ArrowLeft className="mr-2 h-4 w-4" />
+                <ArrowLeft className="mr-2 h-4 w-4 stroke-current" />
                 프로젝트 목록으로
               </Button>
             </div>
@@ -158,11 +158,11 @@ export default async function ProjectDetailPage({ params }: ProjectDetailPagePro
                 </h2>
                 <div className="space-y-3">
                   <div className="flex items-center gap-3 text-gray-600 dark:text-gray-300">
-                    <Calendar className="h-5 w-5 text-blue-500" />
+                    <Calendar className="h-5 w-5 text-blue-500 stroke-current" />
                     <span><strong>기간:</strong> {project.period}</span>
                   </div>
                   <div className="flex items-center gap-3 text-gray-600 dark:text-gray-300">
-                    <User className="h-5 w-5 text-blue-500" />
+                    <User className="h-5 w-5 text-blue-500 stroke-current" />
                     <span><strong>역할:</strong> {project.role}</span>
                   </div>
                 </div>
@@ -181,7 +181,7 @@ export default async function ProjectDetailPage({ params }: ProjectDetailPagePro
                       target="_blank"
                       rel="noopener noreferrer"
                     >
-                      <Github className="mr-2 h-4 w-4" />
+                      <Github className="mr-2 h-4 w-4 stroke-current" />
                       GitHub
                     </Button>
                   )}
@@ -192,7 +192,7 @@ export default async function ProjectDetailPage({ params }: ProjectDetailPagePro
                       target="_blank"
                       rel="noopener noreferrer"
                     >
-                      <ExternalLink className="mr-2 h-4 w-4" />
+                      <ExternalLink className="mr-2 h-4 w-4 stroke-current" />
                       Live Demo
                     </Button>
                   )}

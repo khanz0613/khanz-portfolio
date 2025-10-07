@@ -23,7 +23,7 @@ export default function ContactPage() {
 
             <div className="flex justify-center">
               <Button variant="outline" href="/">
-                <ArrowLeft className="mr-2 h-4 w-4" />
+                <ArrowLeft className="mr-2 h-4 w-4 stroke-current" />
                 홈으로 돌아가기
               </Button>
             </div>
@@ -45,7 +45,7 @@ export default function ContactPage() {
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             <ContactCard
-              icon={<Mail className="h-8 w-8" />}
+              icon={<Mail className="h-8 w-8 stroke-current" />}
               title="이메일"
               content="gkrudgks0613@gmail.com"
               description="가장 선호하는 연락 방법"
@@ -55,7 +55,7 @@ export default function ContactPage() {
               }}
             />
             <ContactCard
-              icon={<Phone className="h-8 w-8" />}
+              icon={<Phone className="h-8 w-8 stroke-current" />}
               title="전화"
               content="010-2431-0733"
               description="업무시간 내 통화 가능"
@@ -65,7 +65,7 @@ export default function ContactPage() {
               }}
             />
             <ContactCard
-              icon={<Github className="h-8 w-8" />}
+              icon={<Github className="h-8 w-8 stroke-current" />}
               title="GitHub"
               content="@khanz0613"
               description="코드 리뷰 및 기술 토론"
@@ -173,7 +173,7 @@ export default function ContactPage() {
                     type="submit"
                     className="group"
                   >
-                    <Send className="mr-2 h-5 w-5" />
+                    <Send className="mr-2 h-5 w-5 stroke-current" />
                     메시지 보내기
                   </Button>
                 </div>
@@ -198,7 +198,7 @@ export default function ContactPage() {
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
             <InfoCard
-              icon={<Clock className="h-8 w-8" />}
+              icon={<Clock className="h-8 w-8 stroke-current" />}
               title="응답 시간"
               items={[
                 "이메일: 24시간 이내",
@@ -207,7 +207,7 @@ export default function ContactPage() {
               ]}
             />
             <InfoCard
-              icon={<MapPin className="h-8 w-8" />}
+              icon={<MapPin className="h-8 w-8 stroke-current" />}
               title="위치 & 가능한 협업"
               items={[
                 "위치: 대한민국, 서울",
@@ -275,7 +275,7 @@ export default function ContactPage() {
             </p>
             <div className="flex flex-wrap justify-center gap-4">
               <Button size="lg" href="mailto:gkrudgks0613@gmail.com">
-                <Mail className="mr-2 h-5 w-5" />
+                <Mail className="mr-2 h-5 w-5 stroke-current" />
                 바로 이메일 보내기
               </Button>
               <Button size="lg" variant="outline" href="/projects">

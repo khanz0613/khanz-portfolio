@@ -107,14 +107,14 @@ const Hero = () => {
           >
             <Button size="lg" href="/projects" className="group">
               프로젝트 보기
-              <ExternalLink className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
+              <ExternalLink className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform stroke-current" />
             </Button>
             <Button variant="outline" size="lg" href="/contact" className="group">
               연락하기
-              <Download className="ml-2 h-4 w-4 group-hover:translate-y-1 transition-transform" />
+              <Download className="ml-2 h-4 w-4 group-hover:translate-y-1 transition-transform stroke-current" />
             </Button>
             <Button variant="ghost" size="lg" href="https://github.com/khanz0613" target="_blank" rel="noopener noreferrer" className="group">
-              <Github className="mr-2 h-4 w-4" />
+              <Github className="mr-2 h-4 w-4 stroke-current" />
               GitHub
             </Button>
           </motion.div>
