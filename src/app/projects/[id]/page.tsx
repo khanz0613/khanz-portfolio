@@ -228,7 +228,7 @@ export default async function ProjectDetailPage({ params }: ProjectDetailPagePro
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
               {Object.entries(project.techStack).map(([category, technologies]) => (
-                <div key={category} className="bg-white dark:bg-gray-900 rounded-lg p-6 shadow-sm border border-gray-200 dark:border-gray-800">
+                <div key={category} className="bg-white dark:bg-gray-900 rounded-lg p-6 shadow-md border-2 border-gray-300 dark:border-gray-700">
                   <div className="flex items-center gap-3 mb-4">
                     <div className="text-blue-600 dark:text-blue-400">
                       {getTechIcon(category)}
@@ -267,7 +267,7 @@ export default async function ProjectDetailPage({ params }: ProjectDetailPagePro
 
               <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
                 {Object.entries(project.metrics).map(([key, value]) => (
-                  <div key={key} className="text-center p-6 bg-gray-50 dark:bg-gray-800 rounded-lg">
+                  <div key={key} className="text-center p-6 bg-gray-50 dark:bg-gray-800 rounded-lg border-2 border-gray-200 dark:border-gray-700">
                     <div className="text-3xl font-bold gradient-text mb-2">
                       {value}
                     </div>

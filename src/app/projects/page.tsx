@@ -166,7 +166,7 @@ function StatCard({ number, label, description }: {
   description: string;
 }) {
   return (
-    <div className="text-center space-y-2 p-6 bg-gray-50 dark:bg-gray-800 rounded-lg">
+    <div className="text-center space-y-2 p-6 bg-gray-50 dark:bg-gray-800 rounded-lg border-2 border-gray-200 dark:border-gray-700">
       <div className="text-3xl font-bold gradient-text">
         {number}
       </div>

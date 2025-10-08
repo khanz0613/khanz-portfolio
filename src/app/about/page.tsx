@@ -67,7 +67,7 @@ export default function AboutPage() {
               </div>
 
               <div className="space-y-6">
-                <div className="bg-gray-50 dark:bg-gray-800 rounded-lg p-6">
+                <div className="bg-gray-50 dark:bg-gray-800 rounded-lg p-6 border-2 border-gray-200 dark:border-gray-700">
                   <h3 className="text-xl font-semibold text-gray-900 dark:text-gray-100 mb-4">
                     🎯 현재 상황
                   </h3>
@@ -291,7 +291,7 @@ function JourneyItem({ year, title, description, highlight }: {
         </div>
       </div>
       <div className="flex-grow">
-        <div className="bg-white dark:bg-gray-900 rounded-lg p-6 shadow-sm border border-gray-200 dark:border-gray-800">
+        <div className="bg-white dark:bg-gray-900 rounded-lg p-6 shadow-md border-2 border-gray-300 dark:border-gray-700">
           <h3 className="text-xl font-semibold text-gray-900 dark:text-gray-100 mb-2">
             {title}
           </h3>
@@ -313,7 +313,7 @@ function ValueCard({ icon, title, description }: {
   description: string;
 }) {
   return (
-    <div className="bg-gray-50 dark:bg-gray-800 rounded-lg p-6 text-center space-y-4">
+    <div className="bg-gray-50 dark:bg-gray-800 rounded-lg p-6 text-center space-y-4 border-2 border-gray-200 dark:border-gray-700">
       <div className="text-blue-600 dark:text-blue-400 flex justify-center">
         {icon}
       </div>
@@ -333,7 +333,7 @@ function FunFactCard({ emoji, fact, description }: {
   description: string;
 }) {
   return (
-    <div className="bg-white dark:bg-gray-900 rounded-lg p-6 text-center space-y-3 shadow-sm border border-gray-200 dark:border-gray-800">
+    <div className="bg-white dark:bg-gray-900 rounded-lg p-6 text-center space-y-3 shadow-md border-2 border-gray-300 dark:border-gray-700">
       <div className="text-4xl">{emoji}</div>
       <h3 className="text-lg font-semibold text-gray-900 dark:text-gray-100">
         {fact}
@@ -350,7 +350,7 @@ function GoalCard({ title, goals }: {
   goals: string[];
 }) {
   return (
-    <div className="bg-gray-50 dark:bg-gray-800 rounded-lg p-6">
+    <div className="bg-gray-50 dark:bg-gray-800 rounded-lg p-6 border-2 border-gray-200 dark:border-gray-700">
       <h3 className="text-xl font-semibold text-gray-900 dark:text-gray-100 mb-4">
         {title}
       </h3>

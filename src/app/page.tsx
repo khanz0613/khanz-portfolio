@@ -133,7 +133,7 @@ function TechCategory({ icon, title, technologies }: {
   technologies: string[];
 }) {
   return (
-    <div className="bg-white dark:bg-gray-900 rounded-lg p-6 text-center space-y-4 shadow-sm border border-gray-200 dark:border-gray-800 hover:shadow-md transition-shadow">
+    <div className="bg-white dark:bg-gray-900 rounded-lg p-6 text-center space-y-4 shadow-md border-2 border-gray-300 dark:border-gray-700 hover:shadow-lg transition-shadow">
       <div className="text-blue-600 dark:text-blue-400 flex justify-center">
         {icon}
       </div>

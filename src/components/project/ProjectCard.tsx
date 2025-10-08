@@ -48,7 +48,7 @@ const ProjectCard = ({ project, index = 0 }: ProjectCardProps) => {
       whileHover={{ y: -8 }}
       className="group h-full"
     >
-      <Card className="h-full overflow-hidden transition-all duration-300 hover:shadow-xl border-0 bg-white/80 backdrop-blur-sm dark:bg-gray-900/80 flex flex-col">
+      <Card className="h-full overflow-hidden transition-all duration-300 hover:shadow-xl bg-white backdrop-blur-sm dark:bg-gray-900 flex flex-col">
         {/* Project Image */}
         <div className="relative h-48 overflow-hidden flex-shrink-0">
           <div className="absolute inset-0 bg-gradient-to-br from-blue-500/20 to-cyan-500/20" />

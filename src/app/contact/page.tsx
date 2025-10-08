@@ -91,7 +91,7 @@ export default function ContactPage() {
               </p>
             </div>
 
-            <div className="bg-white dark:bg-gray-900 rounded-lg shadow-sm border border-gray-200 dark:border-gray-800 p-8">
+            <div className="bg-white dark:bg-gray-900 rounded-lg shadow-md border-2 border-gray-300 dark:border-gray-700 p-8">
               <form
                 className="space-y-6"
                 onSubmit={(e) => {
@@ -298,7 +298,7 @@ function ContactCard({ icon, title, content, description, action }: {
   action: { text: string; href: string };
 }) {
   return (
-    <div className="bg-white dark:bg-gray-900 rounded-lg p-6 shadow-sm border border-gray-200 dark:border-gray-800 hover:shadow-md transition-shadow text-center">
+    <div className="bg-white dark:bg-gray-900 rounded-lg p-6 shadow-md border-2 border-gray-300 dark:border-gray-700 hover:shadow-lg transition-shadow text-center">
       <div className="space-y-4">
         <div className="text-blue-600 dark:text-blue-400 flex justify-center">
           {icon}
@@ -362,7 +362,7 @@ function ServiceCard({ title, description }: {
   description: string;
 }) {
   return (
-    <div className="bg-white dark:bg-gray-900 rounded-lg p-6 shadow-sm border border-gray-200 dark:border-gray-800">
+    <div className="bg-white dark:bg-gray-900 rounded-lg p-6 shadow-md border-2 border-gray-300 dark:border-gray-700">
       <div className="space-y-3">
         <h3 className="text-lg font-semibold text-gray-900 dark:text-gray-100">
           {title}
