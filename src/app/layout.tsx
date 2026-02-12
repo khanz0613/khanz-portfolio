@@ -1,56 +1,45 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
 import Navigation from "@/components/layout/Navigation";
+import { profile } from "@/lib/portfolio-data";
 import "./globals.css";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
-
 export const metadata: Metadata = {
-  metadataBase: new URL('https://khanz-portfolio.vercel.app'),
+  metadataBase: new URL("https://khanz-portfolio.vercel.app"),
   title: {
-    default: "하경한 - 풀스택 개발자 & ML 엔지니어 포트폴리오",
-    template: "%s | 하경한 포트폴리오"
+    default: "하경한 | 백엔드 중심 풀스택 개발자 & ML 엔지니어",
+    template: "%s | 하경한 포트폴리오",
   },
-  description: "풀스택 개발부터 머신러닝까지 다양한 기술 스택을 활용한 실무 프로젝트 경험을 보유한 개발자 하경한의 포트폴리오입니다. 현재 2개의 프로덕션 서비스를 운영하며 10만+ 사용자에게 서비스를 제공하고 있습니다.",
+  description:
+    "백엔드 아키텍처, 데이터 파이프라인, ML 모델링을 실제 프로젝트로 증명해온 하경한의 개발자 포트폴리오입니다.",
   keywords: [
-    "하경한", "Kyunghan Ha", "풀스택 개발자", "머신러닝 엔지니어",
-    "Spring Boot", "React", "Vue.js", "Python", "DevOps", "AWS",
-    "포트폴리오", "개발자", "풀스택", "머신러닝", "AI"
+    "하경한",
+    "Kyeonghan Ha",
+    "풀스택 개발자",
+    "백엔드 개발자",
+    "ML 엔지니어",
+    "Spring Boot",
+    "Java",
+    "Python",
+    "Redis",
+    "AWS",
+    "포트폴리오",
   ],
-  authors: [{ name: "하경한 (Kyeonghan Ha)", url: "https://github.com/khanz0613" }],
-  creator: "하경한",
-  publisher: "하경한",
-  robots: {
-    index: true,
-    follow: true,
-    googleBot: {
-      index: true,
-      follow: true,
-      "max-video-preview": -1,
-      "max-image-preview": "large",
-      "max-snippet": -1,
-    },
-  },
+  authors: [{ name: `${profile.name} (${profile.englishName})`, url: profile.github }],
+  creator: profile.name,
+  publisher: profile.name,
   openGraph: {
     type: "website",
     locale: "ko_KR",
     url: "https://khanz-portfolio.vercel.app",
-    title: "하경한 - 풀스택 개발자 포트폴리오",
-    description: "사용자에게 서비스를 제공하는 프로덕션 서비스를 운영하는 풀스택 개발자 및 ML 엔지니어",
+    title: "하경한 | 백엔드 중심 풀스택 개발자 & ML 엔지니어",
+    description:
+      "서비스 안정성과 데이터 정확도를 함께 설계하는 개발자. 프로젝트 성과와 기술 역량을 한눈에 확인할 수 있습니다.",
     siteName: "하경한 포트폴리오",
   },
   twitter: {
     card: "summary_large_image",
-    title: "하경한 - 풀스택 개발자 및 ML 엔지니어",
-    description: "풀스택 개발, 머신러닝, DevOps 전문성을 보여주는 전문 포트폴리오",
+    title: "하경한 포트폴리오",
+    description: "백엔드, 데이터, ML을 연결해 문제를 해결하는 개발자 소개 페이지",
   },
 };
 
@@ -59,37 +48,39 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const currentYear = new Date().getFullYear();
+
   return (
     <html lang="ko" className="scroll-smooth">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased min-h-screen bg-background font-sans`}
-      >
+      <body className="min-h-screen bg-background text-foreground antialiased">
         <Navigation />
-        <main className="relative">
-          {children}
-        </main>
-        <footer className="bg-gray-50 dark:bg-gray-900 border-t border-gray-200 dark:border-gray-800">
-          <div className="container-width section-padding py-12">
-            <div className="text-center space-y-4">
-              <h3 className="text-lg font-semibold gradient-text">하경한 (Kyeonghan Ha)</h3>
-              <p className="text-gray-600 dark:text-gray-400">
-                풀스택 개발자 & ML 엔지니어
+        <main className="relative">{children}</main>
+        <footer className="border-t border-slate-200 bg-white">
+          <div className="container-width section-padding py-10">
+            <div className="flex flex-col items-center gap-4 text-center">
+              <p className="text-lg font-extrabold tracking-tight text-slate-900">
+                {profile.name}
+                <span className="ml-2 text-sm font-semibold text-slate-500">{profile.englishName}</span>
               </p>
-              <div className="flex justify-center space-x-6 text-sm text-gray-700 dark:text-gray-300">
-                <a href="mailto:gkrudgks0613@gmail.com" className="hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
-                  gkrudgks0613@gmail.com
+              <p className="max-w-2xl text-sm text-slate-600">{profile.headline}</p>
+              <div className="flex flex-wrap items-center justify-center gap-4 text-sm text-slate-600">
+                <a href={`mailto:${profile.email}`} className="transition-colors hover:text-blue-600">
+                  {profile.email}
                 </a>
-                <span className="text-gray-400 dark:text-gray-500">•</span>
-                <a href="tel:010-2431-0733" className="hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
-                  010-2431-0733
+                <a href={`tel:${profile.phone}`} className="transition-colors hover:text-blue-600">
+                  {profile.phone}
                 </a>
-                <span className="text-gray-400 dark:text-gray-500">•</span>
-                <a href="https://github.com/khanz0613" target="_blank" rel="noopener noreferrer" className="hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
+                <a
+                  href={profile.github}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="transition-colors hover:text-blue-600"
+                >
                   GitHub
                 </a>
               </div>
-              <p className="text-xs text-gray-400 dark:text-gray-500">
-                © 2025 하경한. All rights reserved.
+              <p className="text-xs text-slate-500">
+                © {currentYear} {profile.name}. All rights reserved.
               </p>
             </div>
           </div>
