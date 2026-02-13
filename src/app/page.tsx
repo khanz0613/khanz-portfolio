@@ -1,8 +1,8 @@
 import Link from 'next/link';
 import { ArrowRight, Check, Star, Trophy } from 'lucide-react';
 import { Button } from '@/components/ui/Button';
-import HomeSnapMode from '@/components/home/HomeSnapMode';
 import ChapterRail from '@/components/home/ChapterRail';
+import ScrollProgressBar from '@/components/home/ScrollProgressBar';
 import {
   awards,
   certifications,
@@ -26,17 +26,17 @@ export default function Home() {
 
   return (
     <div className="home-snap-shell min-h-screen bg-slate-50 pt-16 text-slate-900">
-      <HomeSnapMode />
       <ChapterRail chapters={chapters} />
+      <ScrollProgressBar />
 
       <section id="hero" className="home-chapter home-chapter-hero gradient-bg relative overflow-hidden border-b border-slate-200">
-        <div className="pointer-events-none absolute inset-0">
+        <div className="pointer-events-none absolute inset-0 z-30">
           <div className="float-slow absolute -left-14 top-16 h-48 w-48 rounded-full bg-blue-400/20 blur-3xl" />
           <div className="float-delay absolute right-10 top-10 h-60 w-60 rounded-full bg-emerald-300/20 blur-3xl" />
           <div className="float-slow absolute bottom-0 left-1/2 h-56 w-56 -translate-x-1/2 rounded-full bg-amber-300/20 blur-3xl" />
         </div>
 
-        <div className="container-width section-padding section-shell relative">
+        <div className="container-width section-padding section-shell relative z-40">
           <div className="max-w-3xl space-y-7 fade-up">
             <span className="section-label">Backend x ML Engineering</span>
             <h1 className="text-4xl font-black leading-tight tracking-tight md:text-6xl">
@@ -65,7 +65,7 @@ export default function Home() {
             {highlights.map((item, index) => (
               <div
                 key={item.label}
-                className="glass-panel fade-up rounded-2xl p-5"
+                className="glass-panel interactive-card fade-up rounded-2xl p-5"
                 style={{ animationDelay: `${120 + index * 90}ms` }}
               >
                 <p className="text-xs font-bold uppercase tracking-wider text-slate-500">{item.label}</p>
@@ -96,7 +96,7 @@ export default function Home() {
             {featuredProjects.map((project) => (
               <article
                 key={project.id}
-                className="group rounded-2xl border border-slate-200 bg-white p-6 shadow-sm transition-all hover:-translate-y-1 hover:shadow-xl"
+                className="interactive-card group flex h-full flex-col rounded-2xl border border-slate-200 bg-white p-6 shadow-sm transition-all hover:-translate-y-1 hover:shadow-xl"
               >
                 <div className="flex flex-wrap items-center gap-2">
                   <span className="rounded-full bg-blue-100 px-2.5 py-1 text-xs font-semibold text-blue-700">
@@ -108,18 +108,20 @@ export default function Home() {
                 </div>
                 <h3 className="mt-4 text-xl font-extrabold tracking-tight text-slate-900">{project.name}</h3>
                 <p className="mt-1 text-sm font-medium text-slate-500">{project.subtitle}</p>
-                <p className="mt-3 text-sm leading-relaxed text-slate-600">{project.summary}</p>
-                <ul className="mt-4 space-y-2">
-                  {project.highlights.slice(0, 3).map((point) => (
-                    <li key={point} className="flex items-start gap-2 text-sm text-slate-700">
-                      <Check size={15} className="mt-0.5 shrink-0 text-emerald-500" />
-                      <span>{point}</span>
-                    </li>
-                  ))}
-                </ul>
+                <div className="mt-3 flex flex-1 flex-col">
+                  <p className="text-sm leading-relaxed text-slate-600">{project.summary}</p>
+                  <ul className="mt-4 space-y-2">
+                    {project.highlights.slice(0, 3).map((point) => (
+                      <li key={point} className="flex items-start gap-2 text-sm text-slate-700">
+                        <Check size={15} className="mt-0.5 shrink-0 text-emerald-500" />
+                        <span>{point}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
                 <Link
                   href={`/projects/${project.id}`}
-                  className="mt-6 inline-flex items-center text-sm font-bold text-blue-600 transition-colors group-hover:text-blue-700"
+                  className="mt-auto inline-flex items-center pt-6 text-sm font-bold text-blue-600 transition-colors group-hover:text-blue-700"
                 >
                   자세히 보기
                   <ArrowRight className="ml-1 h-4 w-4" />
@@ -163,7 +165,7 @@ export default function Home() {
 
       <section id="experience" className="home-chapter section-shell">
         <div className="container-width section-padding grid grid-cols-1 gap-6 lg:grid-cols-3">
-          <article className="rounded-2xl border border-slate-200 bg-white p-6 lg:col-span-2">
+          <article className="interactive-card rounded-2xl border border-slate-200 bg-white p-6 lg:col-span-2">
             <div className="mb-5 flex items-center gap-2">
               <Star size={17} className="text-amber-500" />
               <h2 className="text-xl font-black tracking-tight text-slate-900">경험</h2>
@@ -180,7 +182,7 @@ export default function Home() {
             </div>
           </article>
 
-          <article className="rounded-2xl border border-slate-200 bg-white p-6">
+          <article className="interactive-card rounded-2xl border border-slate-200 bg-white p-6">
             <div className="mb-5 flex items-center gap-2">
               <Trophy size={17} className="text-emerald-600" />
               <h2 className="text-xl font-black tracking-tight text-slate-900">수상 · 자격</h2>

@@ -63,7 +63,7 @@ export default async function ProjectDetailPage({ params }: ProjectDetailPagePro
 
       <section className="section-shell">
         <div className="container-width section-padding grid grid-cols-1 gap-6 lg:grid-cols-3">
-          <article className="rounded-2xl border border-slate-200 bg-white p-6 lg:col-span-1">
+          <article className="interactive-card rounded-2xl border border-slate-200 bg-white p-6 lg:col-span-1">
             <h2 className="text-lg font-black tracking-tight text-slate-900">기본 정보</h2>
             <ul className="mt-4 space-y-3 text-sm text-slate-700">
               <li className="flex items-start gap-2">
@@ -81,7 +81,7 @@ export default async function ProjectDetailPage({ params }: ProjectDetailPagePro
             </ul>
           </article>
 
-          <article className="rounded-2xl border border-slate-200 bg-white p-6 lg:col-span-2">
+          <article className="interactive-card rounded-2xl border border-slate-200 bg-white p-6 lg:col-span-2">
             <h2 className="text-lg font-black tracking-tight text-slate-900">핵심 구현 및 성과</h2>
             <ul className="mt-4 space-y-3">
               {project.highlights.map((item) => (

@@ -24,7 +24,7 @@ export default function AboutPage() {
 
       <section className="section-shell">
         <div className="container-width section-padding grid grid-cols-1 gap-6 lg:grid-cols-3">
-          <article className="rounded-2xl border border-slate-200 bg-white p-6 lg:col-span-2">
+          <article className="interactive-card rounded-2xl border border-slate-200 bg-white p-6 lg:col-span-2">
             <div className="mb-4 flex items-center gap-2">
               <UserRound size={18} className="text-blue-600" />
               <h2 className="text-xl font-black tracking-tight text-slate-900">개발자로서의 방식</h2>
@@ -40,7 +40,7 @@ export default function AboutPage() {
             </ul>
           </article>
 
-          <article className="rounded-2xl border border-slate-200 bg-white p-6">
+          <article className="interactive-card rounded-2xl border border-slate-200 bg-white p-6">
             <h2 className="text-xl font-black tracking-tight text-slate-900">기본 정보</h2>
             <ul className="mt-4 space-y-2 text-sm text-slate-700">
               <li>
@@ -83,7 +83,7 @@ export default function AboutPage() {
 
       <section className="section-shell">
         <div className="container-width section-padding grid grid-cols-1 gap-6 lg:grid-cols-2">
-          <article className="rounded-2xl border border-slate-200 bg-white p-6">
+          <article className="interactive-card rounded-2xl border border-slate-200 bg-white p-6">
             <div className="mb-4 flex items-center gap-2">
               <Trophy size={18} className="text-emerald-600" />
               <h2 className="text-xl font-black tracking-tight text-slate-900">수상</h2>
@@ -98,7 +98,7 @@ export default function AboutPage() {
             ))}
           </article>
 
-          <article className="rounded-2xl border border-slate-200 bg-white p-6">
+          <article className="interactive-card rounded-2xl border border-slate-200 bg-white p-6">
             <div className="mb-4 flex items-center gap-2">
               <Music2 size={18} className="text-amber-600" />
               <h2 className="text-xl font-black tracking-tight text-slate-900">대외 활동</h2>

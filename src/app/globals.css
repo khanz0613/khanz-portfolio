@@ -71,6 +71,27 @@ a {
   box-shadow: 0 24px 44px rgba(15, 23, 42, 0.08);
 }
 
+.interactive-card {
+  position: relative;
+  overflow: hidden;
+}
+
+.interactive-card::before {
+  content: "";
+  position: absolute;
+  inset: -1px;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 260ms ease;
+  background:
+    radial-gradient(460px circle at 0% 0%, rgba(59, 130, 246, 0.14), transparent 45%),
+    radial-gradient(420px circle at 100% 100%, rgba(16, 185, 129, 0.12), transparent 50%);
+}
+
+.interactive-card:hover::before {
+  opacity: 1;
+}
+
 .section-label {
   display: inline-flex;
   align-items: center;
@@ -139,8 +160,7 @@ a {
 
 @media (min-width: 1024px) {
   html.home-snap-mode {
-    scroll-snap-type: y proximity;
-    scroll-padding-top: 4rem;
+    scroll-behavior: auto;
   }
 
   html.home-snap-mode body {
@@ -148,15 +168,37 @@ a {
   }
 
   html.home-snap-mode .home-chapter {
-    scroll-snap-align: start;
-    scroll-snap-stop: always;
-  }
-
-  html.home-snap-mode .home-chapter-hero,
-  html.home-snap-mode .home-chapter-cta {
-    min-height: calc(100vh - 4rem);
+    min-height: calc(100svh - 4rem);
     display: flex;
     align-items: center;
+    opacity: 0.72;
+    transform: scale(0.985);
+    transition:
+      transform 480ms cubic-bezier(0.22, 1, 0.36, 1),
+      opacity 420ms cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
+  html.home-snap-mode .home-chapter.chapter-active {
+    opacity: 1;
+    transform: scale(1);
+  }
+
+  html.home-snap-mode .home-chapter.section-shell {
+    padding-top: 0;
+    padding-bottom: 0;
+  }
+
+  html.home-snap-mode .home-chapter > .container-width {
+    position: relative;
+    z-index: 30;
+    width: 100%;
+    padding-top: 2.5rem;
+    padding-bottom: 2.5rem;
+  }
+
+  html.home-snap-mode .home-chapter > .container-width.section-shell {
+    padding-top: 2.5rem;
+    padding-bottom: 2.5rem;
   }
 }
 

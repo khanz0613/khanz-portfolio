@@ -24,7 +24,7 @@ export default function SkillsPage() {
       <section className="section-shell">
         <div className="container-width section-padding grid grid-cols-1 gap-5 md:grid-cols-2">
           {skillGroups.map((group) => (
-            <article key={group.title} className="rounded-2xl border border-slate-200 bg-white p-6">
+            <article key={group.title} className="interactive-card rounded-2xl border border-slate-200 bg-white p-6">
               <h2 className="text-xl font-black tracking-tight text-slate-900">{group.title}</h2>
               <p className="mt-2 text-sm leading-relaxed text-slate-600">{group.description}</p>
               <ul className="mt-4 space-y-2">
@@ -61,7 +61,7 @@ export default function SkillsPage() {
 
       <section className="section-shell">
         <div className="container-width section-padding grid grid-cols-1 gap-6 lg:grid-cols-2">
-          <article className="rounded-2xl border border-slate-200 bg-white p-6">
+          <article className="interactive-card rounded-2xl border border-slate-200 bg-white p-6">
             <div className="flex items-center gap-2">
               <BadgeCheck size={18} className="text-emerald-600" />
               <h2 className="text-xl font-black tracking-tight text-slate-900">자격 및 공인 시험</h2>
@@ -76,7 +76,7 @@ export default function SkillsPage() {
             </ul>
           </article>
 
-          <article className="rounded-2xl border border-slate-200 bg-white p-6">
+          <article className="interactive-card rounded-2xl border border-slate-200 bg-white p-6">
             <h2 className="text-xl font-black tracking-tight text-slate-900">기술 적용 방식</h2>
             <ul className="mt-4 space-y-3 text-sm leading-relaxed text-slate-700">
               <li>백엔드: 도메인 모델링과 트랜잭션 안정성을 먼저 설계합니다.</li>

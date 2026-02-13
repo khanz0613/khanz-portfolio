@@ -105,7 +105,7 @@ function ContactCard({
   href: string;
 }) {
   return (
-    <article className="rounded-2xl border border-slate-200 bg-white p-6">
+    <article className="interactive-card rounded-2xl border border-slate-200 bg-white p-6">
       <div className="flex items-center gap-2">
         {icon}
         <h2 className="text-sm font-bold uppercase tracking-wider text-slate-500">{label}</h2>
@@ -131,7 +131,7 @@ function InfoCard({
   items: string[];
 }) {
   return (
-    <article className="rounded-2xl border border-slate-200 bg-slate-50 p-6">
+    <article className="interactive-card rounded-2xl border border-slate-200 bg-slate-50 p-6">
       <div className="flex items-center gap-2">
         {icon}
         <h2 className="text-lg font-black tracking-tight text-slate-900">{title}</h2>
