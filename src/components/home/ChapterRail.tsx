@@ -47,8 +47,8 @@ export default function ChapterRail({ chapters }: ChapterRailProps) {
       aria-label="홈 챕터 이동"
       className="fixed right-6 top-1/2 z-40 hidden -translate-y-1/2 xl:block"
     >
-      <div className="rounded-2xl border border-slate-200 bg-white/88 p-3 shadow-lg backdrop-blur">
-        <p className="mb-2 px-2 text-[11px] font-bold uppercase tracking-[0.2em] text-slate-500">Chapters</p>
+      <div className="rounded-lg border border-slate-200 bg-white/88 p-3 shadow-lg backdrop-blur">
+        <p className="mb-2 px-2 text-[11px] font-bold uppercase text-slate-500">Chapters</p>
         <ul className="space-y-1.5">
           {chapters.map((chapter) => (
             <li key={chapter.id}>

@@ -19,6 +19,9 @@ export default function Navigation() {
   const [isOpen, setIsOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
 
+  const isHome = pathname === '/';
+  const useDarkTop = isHome && !isScrolled;
+
   const isActive = (href: string) => {
     if (href === '/') return pathname === '/';
     return pathname === href || pathname.startsWith(`${href}/`);
@@ -40,31 +43,50 @@ export default function Navigation() {
       <div
         className={cn(
           'transition-all duration-300',
-          isScrolled ? 'border-b border-slate-200 bg-white/88 backdrop-blur-md' : 'bg-transparent'
+          useDarkTop
+            ? 'border-b border-white/10 bg-[#07110f]/[0.72] text-white backdrop-blur-md'
+            : 'border-b border-zinc-950/10 bg-[#f8f5ee]/[0.92] text-zinc-950 shadow-sm backdrop-blur-md'
         )}
       >
         <nav className="container-width section-padding flex h-16 items-center justify-between">
-          <Link href="/" className="group inline-flex items-center gap-2">
-            <span className="rounded-xl bg-blue-600 px-2 py-1 text-xs font-black tracking-wider text-white">KH</span>
-            <span className="font-extrabold tracking-tight text-slate-900 transition-colors group-hover:text-blue-600">
+          <Link href="/" className="group inline-flex items-center gap-2" aria-label="하경한 홈">
+            <span
+              className={cn(
+                'flex h-8 w-8 items-center justify-center rounded-lg text-xs font-black transition-colors',
+                useDarkTop ? 'bg-[#f6d365] text-zinc-950' : 'bg-zinc-950 text-white'
+              )}
+            >
+              KH
+            </span>
+            <span className={cn('font-black transition-colors', useDarkTop ? 'text-white group-hover:text-[#f6d365]' : 'text-zinc-950 group-hover:text-sky-700')}>
               하경한
             </span>
           </Link>
 
-          <div className="hidden items-center gap-8 md:flex">
-            {navItems.map((item) => (
-              <Link
-                key={item.href}
-                href={item.href}
-                aria-current={isActive(item.href) ? 'page' : undefined}
-                className={cn(
-                  'text-sm font-semibold tracking-tight transition-colors',
-                  isActive(item.href) ? 'text-blue-600' : 'text-slate-600 hover:text-slate-900'
-                )}
-              >
-                {item.label}
-              </Link>
-            ))}
+          <div className="hidden items-center gap-1 md:flex">
+            {navItems.map((item) => {
+              const active = isActive(item.href);
+
+              return (
+                <Link
+                  key={item.href}
+                  href={item.href}
+                  aria-current={active ? 'page' : undefined}
+                  className={cn(
+                    'rounded-lg px-3 py-2 text-sm font-bold transition-colors',
+                    useDarkTop
+                      ? active
+                        ? 'bg-white/[0.12] text-[#f6d365]'
+                        : 'text-zinc-300 hover:bg-white/[0.08] hover:text-white'
+                      : active
+                        ? 'bg-zinc-950 text-white'
+                        : 'text-zinc-600 hover:bg-zinc-950/[0.06] hover:text-zinc-950'
+                  )}
+                >
+                  {item.label}
+                </Link>
+              );
+            })}
           </div>
 
           <div className="hidden items-center gap-2 md:flex">
@@ -72,25 +94,34 @@ export default function Navigation() {
               href="https://github.com/khanz0613"
               target="_blank"
               rel="noopener noreferrer"
-              className="rounded-lg p-2 text-slate-500 transition-colors hover:bg-slate-100 hover:text-slate-900"
+              className={cn(
+                'rounded-lg p-2 transition-colors',
+                useDarkTop ? 'text-zinc-300 hover:bg-white/[0.08] hover:text-white' : 'text-zinc-600 hover:bg-zinc-950/[0.06] hover:text-zinc-950'
+              )}
               aria-label="GitHub"
             >
-              <Github size={17} className="stroke-current" />
+              <Github size={18} className="stroke-current" />
             </a>
             <a
               href="mailto:gkrudgks0613@gmail.com"
-              className="rounded-lg p-2 text-slate-500 transition-colors hover:bg-slate-100 hover:text-slate-900"
+              className={cn(
+                'rounded-lg p-2 transition-colors',
+                useDarkTop ? 'text-zinc-300 hover:bg-white/[0.08] hover:text-white' : 'text-zinc-600 hover:bg-zinc-950/[0.06] hover:text-zinc-950'
+              )}
               aria-label="Email"
             >
-              <Mail size={17} className="stroke-current" />
+              <Mail size={18} className="stroke-current" />
             </a>
           </div>
 
           <button
             type="button"
             onClick={() => setIsOpen((prev) => !prev)}
-            className="rounded-lg p-2 text-slate-600 transition-colors hover:bg-slate-100 md:hidden"
-            aria-label="메뉴 열기"
+            className={cn(
+              'rounded-lg p-2 transition-colors md:hidden',
+              useDarkTop ? 'text-zinc-200 hover:bg-white/10' : 'text-zinc-700 hover:bg-zinc-950/10'
+            )}
+            aria-label={isOpen ? '메뉴 닫기' : '메뉴 열기'}
             aria-expanded={isOpen}
           >
             {isOpen ? <X size={20} /> : <Menu size={20} />}
@@ -99,36 +130,38 @@ export default function Navigation() {
       </div>
 
       {isOpen && (
-        <div className="border-b border-slate-200 bg-white md:hidden">
+        <div className="border-b border-zinc-950/10 bg-[#f8f5ee] md:hidden">
           <div className="container-width section-padding py-4">
-            <div className="flex flex-col gap-3">
+            <div className="flex flex-col gap-2">
               {navItems.map((item) => (
                 <Link
                   key={item.href}
                   href={item.href}
                   aria-current={isActive(item.href) ? 'page' : undefined}
                   className={cn(
-                    'rounded-lg px-3 py-2 text-sm font-semibold transition-colors',
-                    isActive(item.href) ? 'bg-blue-50 text-blue-700' : 'text-slate-700 hover:bg-slate-100'
+                    'rounded-lg px-3 py-2 text-sm font-bold transition-colors',
+                    isActive(item.href) ? 'bg-zinc-950 text-white' : 'text-zinc-700 hover:bg-zinc-950/[0.08]'
                   )}
                 >
                   {item.label}
                 </Link>
               ))}
             </div>
-            <div className="mt-4 flex gap-2 border-t border-slate-200 pt-4">
+            <div className="mt-4 grid grid-cols-2 gap-2 border-t border-zinc-950/10 pt-4">
               <a
                 href="https://github.com/khanz0613"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="rounded-lg bg-slate-100 px-3 py-2 text-sm font-semibold text-slate-700"
+                className="inline-flex items-center justify-center gap-2 rounded-lg border border-zinc-950/10 px-3 py-2 text-sm font-bold text-zinc-700"
               >
+                <Github size={16} />
                 GitHub
               </a>
               <a
                 href="mailto:gkrudgks0613@gmail.com"
-                className="rounded-lg bg-slate-100 px-3 py-2 text-sm font-semibold text-slate-700"
+                className="inline-flex items-center justify-center gap-2 rounded-lg border border-zinc-950/10 px-3 py-2 text-sm font-bold text-zinc-700"
               >
+                <Mail size={16} />
                 Email
               </a>
             </div>

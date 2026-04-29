@@ -25,7 +25,7 @@ export default function ContactPage() {
       <section className="gradient-bg border-b border-slate-200">
         <div className="container-width section-padding section-shell">
           <span className="section-label">Contact</span>
-          <h1 className="mt-3 text-4xl font-black tracking-tight text-slate-900 md:text-5xl">연락하기</h1>
+          <h1 className="mt-3 text-4xl font-black text-slate-900 md:text-5xl">연락하기</h1>
           <p className="mt-4 max-w-3xl text-slate-600">
             프로젝트 협업, 백엔드/데이터 구조 개선, ML 기능 도입 관련 제안을 환영합니다.
           </p>
@@ -81,7 +81,7 @@ export default function ContactPage() {
 
       <section className="section-shell">
         <div className="container-width section-padding text-center">
-          <h2 className="text-3xl font-black tracking-tight text-slate-900">필요한 문제를 먼저 정리해주시면 바로 맞춰보겠습니다.</h2>
+          <h2 className="text-3xl font-black text-slate-900">필요한 문제를 먼저 정리해주시면 바로 맞춰보겠습니다.</h2>
           <p className="mx-auto mt-4 max-w-2xl text-slate-600">
             현재 겪는 병목 구간이나 목표 지표를 같이 보내주시면, 첫 답변부터 기술적으로 바로 논의할 수 있습니다.
           </p>
@@ -105,12 +105,12 @@ function ContactCard({
   href: string;
 }) {
   return (
-    <article className="interactive-card rounded-2xl border border-slate-200 bg-white p-6">
+    <article className="interactive-card rounded-lg border border-slate-200 bg-white p-6">
       <div className="flex items-center gap-2">
         {icon}
-        <h2 className="text-sm font-bold uppercase tracking-wider text-slate-500">{label}</h2>
+        <h2 className="text-sm font-bold uppercase text-slate-500">{label}</h2>
       </div>
-      <p className="mt-3 text-lg font-extrabold tracking-tight text-slate-900">{value}</p>
+      <p className="mt-3 text-lg font-extrabold text-slate-900">{value}</p>
       <p className="mt-2 text-sm text-slate-600">{description}</p>
       <div className="mt-5">
         <Button href={href} variant="outline" className="w-full">
@@ -131,10 +131,10 @@ function InfoCard({
   items: string[];
 }) {
   return (
-    <article className="interactive-card rounded-2xl border border-slate-200 bg-slate-50 p-6">
+    <article className="interactive-card rounded-lg border border-slate-200 bg-slate-50 p-6">
       <div className="flex items-center gap-2">
         {icon}
-        <h2 className="text-lg font-black tracking-tight text-slate-900">{title}</h2>
+        <h2 className="text-lg font-black text-slate-900">{title}</h2>
       </div>
       <ul className="mt-4 space-y-2">
         {items.map((item) => (

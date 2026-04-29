@@ -1,0 +1,85 @@
+{
+  "schemaVersion": 1,
+  "runId": "20260428T135442Z-upgrade-portfolio-website-ui-only-within-this-repo",
+  "task": "Upgrade portfolio-website UI only within this repo",
+  "selectedPath": "spec-first",
+  "status": "complete",
+  "createdAt": "2026-04-28T13:54:42.852Z",
+  "lifecycle": [
+    "intake",
+    "spec-plan",
+    "contract",
+    "execute",
+    "evaluate",
+    "fix-evolve",
+    "complete"
+  ],
+  "roles": {
+    "planner": "planner",
+    "generator": "executor",
+    "evaluator": "verifier",
+    "qa": "test-engineer",
+    "architectReview": "architect",
+    "criticReview": "critic"
+  },
+  "docsPolicy": {
+    "checkCandidates": [
+      "README*",
+      "AGENTS.md",
+      "docs/",
+      ".omx/wiki/",
+      ".omx/project-memory.json",
+      ".omx/harness/runs/*/handoffs/",
+      "existing PRD/test-spec/contracts"
+    ],
+    "updateWhen": [
+      "user-facing behavior changes",
+      "API/CLI/config changes",
+      "architecture or operational behavior changes",
+      "existing docs contradict code"
+    ]
+  },
+  "dependencyWaves": [
+    {
+      "id": "wave-1",
+      "tasks": [
+        "ui-redesign",
+        "navigation-update",
+        "project-skill-presentation"
+      ],
+      "dependsOn": [],
+      "sharedFiles": [
+        "src/app/globals.css",
+        "src/components/layout/Navigation.tsx"
+      ],
+      "verification": [
+        "npm run lint",
+        "npm run build",
+        "Playwright production screenshots"
+      ]
+    },
+    {
+      "id": "wave-2",
+      "tasks": [
+        "visual-evaluation",
+        "harness-validation"
+      ],
+      "dependsOn": [
+        "wave-1"
+      ],
+      "sharedFiles": [],
+      "verification": [
+        "visual-verdict score >= 90",
+        "node /Users/khanz/.codex/skills/harness/scripts/validate-harness-run.mjs .omx/harness/runs/20260428T135442Z-upgrade-portfolio-website-ui-only-within-this-repo"
+      ]
+    }
+  ],
+  "completion": {
+    "contractAccepted": true,
+    "generatorDone": true,
+    "evaluatorDone": true,
+    "hardThresholdsPassed": true,
+    "evidenceStored": true,
+    "driftBlocking": false
+  }
+}

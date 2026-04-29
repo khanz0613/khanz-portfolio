@@ -48,7 +48,7 @@ export default async function ProjectDetailPage({ params }: ProjectDetailPagePro
               </span>
             )}
           </div>
-          <h1 className="mt-4 text-4xl font-black tracking-tight text-slate-900 md:text-5xl">{project.name}</h1>
+          <h1 className="mt-4 text-4xl font-black text-slate-900 md:text-5xl">{project.name}</h1>
           <p className="mt-2 text-lg font-semibold text-slate-600">{project.subtitle}</p>
           <p className="mt-4 max-w-3xl text-base leading-relaxed text-slate-700">{project.summary}</p>
           <div className="mt-8 flex flex-wrap gap-3">
@@ -63,8 +63,8 @@ export default async function ProjectDetailPage({ params }: ProjectDetailPagePro
 
       <section className="section-shell">
         <div className="container-width section-padding grid grid-cols-1 gap-6 lg:grid-cols-3">
-          <article className="interactive-card rounded-2xl border border-slate-200 bg-white p-6 lg:col-span-1">
-            <h2 className="text-lg font-black tracking-tight text-slate-900">기본 정보</h2>
+          <article className="interactive-card rounded-lg border border-slate-200 bg-white p-6 lg:col-span-1">
+            <h2 className="text-lg font-black text-slate-900">기본 정보</h2>
             <ul className="mt-4 space-y-3 text-sm text-slate-700">
               <li className="flex items-start gap-2">
                 <CalendarDays size={16} className="mt-0.5 shrink-0 text-blue-600" />
@@ -81,8 +81,8 @@ export default async function ProjectDetailPage({ params }: ProjectDetailPagePro
             </ul>
           </article>
 
-          <article className="interactive-card rounded-2xl border border-slate-200 bg-white p-6 lg:col-span-2">
-            <h2 className="text-lg font-black tracking-tight text-slate-900">핵심 구현 및 성과</h2>
+          <article className="interactive-card rounded-lg border border-slate-200 bg-white p-6 lg:col-span-2">
+            <h2 className="text-lg font-black text-slate-900">핵심 구현 및 성과</h2>
             <ul className="mt-4 space-y-3">
               {project.highlights.map((item) => (
                 <li key={item} className="flex items-start gap-2 text-sm leading-relaxed text-slate-700">
@@ -97,7 +97,7 @@ export default async function ProjectDetailPage({ params }: ProjectDetailPagePro
 
       <section className="section-shell border-y border-slate-200 bg-white">
         <div className="container-width section-padding">
-          <h2 className="text-2xl font-black tracking-tight text-slate-900">활용 기술</h2>
+          <h2 className="text-2xl font-black text-slate-900">활용 기술</h2>
           <div className="mt-5 flex flex-wrap gap-2">
             {project.tech.map((skill) => (
               <span
@@ -114,7 +114,7 @@ export default async function ProjectDetailPage({ params }: ProjectDetailPagePro
 
       <section className="section-shell">
         <div className="container-width section-padding text-center">
-          <h2 className="text-3xl font-black tracking-tight text-slate-900">다음 프로젝트도 확인해보세요.</h2>
+          <h2 className="text-3xl font-black text-slate-900">다음 프로젝트도 확인해보세요.</h2>
           <p className="mx-auto mt-3 max-w-2xl text-slate-600">
             기술 선택 근거와 성능 개선 과정이 궁금하면 언제든 문의해 주세요.
           </p>
